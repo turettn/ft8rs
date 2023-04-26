@@ -102,7 +102,11 @@ pub fn g15_to_grid(mut grid: u32) -> Result<String, &'static str> {
             }
         }
 
-        Ok(ret.chars().rev().collect::<String>())
+        if grid != 0 {
+            Err("grid value out of bounds")
+        } else {
+            Ok(ret.chars().rev().collect::<String>())
+        }
     }
 }
 
@@ -126,8 +130,11 @@ pub fn g25_to_grid(mut grid: u32) -> Result<String, &'static str> {
         }
     }
 
-    // TODO: Check grid == 0
-    Ok(ret.chars().rev().collect::<String>())
+    if grid != 0 {
+        Err("grid value out of bounds")
+    } else {
+        Ok(ret.chars().rev().collect::<String>())
+    }
 }
 
 #[cfg(test)]
